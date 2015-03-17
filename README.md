@@ -9,14 +9,18 @@ so I can create a display to go with the voice feature
 #Dependencies 
 
 -BeautifulSoup4
+
 -Mechanize
+
 -AudioPy
+
 -SpeechRecognition
+
 -Pyttsx
 
 #Features to be added-
--[ ] GUI for raspberryPi client side
--[ ] Camera code for live weather display
--[ ] Spur for ssh functionality on to communicate with the pi from the server
+- [ ] GUI for raspberryPi client side
+- [ ] Camera code for live weather display
+- [ ] Spur for ssh functionality on to communicate with the pi from the server
 
 
