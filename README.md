@@ -18,6 +18,8 @@ so I can create a display to go with the voice feature
 
 -Pyttsx
 
+-Pytz
+
 #Features to be added-
 - [ ] GUI for raspberryPi client side
 - [ ] Camera code for live weather display

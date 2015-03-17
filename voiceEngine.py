@@ -1,7 +1,10 @@
 #! usr/bin/python
-
+import pytz, time
 import speech_recognition as sr 
 import pyaudio
+import threading
+import subprocess
+from multiprocessing import process
 from voiceCommands import *
 
 
@@ -20,7 +23,10 @@ def main():
     with sr.Microphone() as source:
         while 1:
             try:
-                 engine(source,r)
+                 t=threading.Thread(target=engine(source,r))
+                 t.daemon=True 
+                 #engine(source,r)
+                 t.start()
             except LookupError:
                 print("No voice detected")
 

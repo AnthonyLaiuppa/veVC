@@ -4,8 +4,9 @@ import speech_recognition as sr
 from bs4 import BeautifulSoup
 import mechanize
 from mechanize._opener import urlopen
-import pyaudio, os
+import pyaudio
 import os
+import pytz, time
 from datetime import datetime
 
 engine=pyttsx.init()
@@ -28,6 +29,8 @@ def mech(url):
 def date():
     now=datetime.now()
     month='none'
+    #month=time.strftime("%B") This doesnt work, why!?!?!?!?!
+
     if now.month == 1:
         month='January'
         return('The date is', str(month), str(now.day), str(now.year))
@@ -107,7 +110,7 @@ def switch(test):
     elif test=="Jarvis":
         engine.say("Listening Sir")
         engine.runAndWait()
-        engine.say("What is your query?")
+        engine.say(" ")
         engine.runAndWait()
 
     elif all(x in test for x in ['time']):
@@ -123,6 +126,6 @@ def switch(test):
         engine.say(time())
         engine.say(date())
         weather()
-        engine.runAndWait()
+        #engine.runAndWait()
       
     return(test)
