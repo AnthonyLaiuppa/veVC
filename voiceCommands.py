@@ -10,7 +10,7 @@ import pytz, time
 from datetime import datetime
 
 engine=pyttsx.init()
-
+month=time.strftime("%B")
 
 #Mechanize a browser and get the html from the url
 #Then return the html
@@ -28,47 +28,8 @@ def mech(url):
 
 def date():
     now=datetime.now()
-    month='none'
-    #month=time.strftime("%B") This doesnt work, why!?!?!?!?!
-
-    if now.month == 1:
-        month='January'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 2:
-        return('The date is', str(month), str(now.day), str(now.year))
-        month='February'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 3:
-        month='March'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 4:
-        month='April'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 5:
-        month='May'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 6:
-        month='June'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 7:
-        month='July'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 8:
-        month='August'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 9:
-        month='September'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 10:
-        month='October'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 11:
-        month='November'
-        return('The date is', str(month), str(now.day), str(now.year))
-    elif now.month == 12:
-        month='December'
-        return('The date is', str(month), str(now.day), str(now.year)) 
-    return('The date is', str(month), str(now.day), str(now.year))
+    month1=month
+    return('The date is', str(month1), str(now.day), str(now.year))
 
 def time():
     now=datetime.now()

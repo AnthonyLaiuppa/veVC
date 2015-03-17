@@ -9,11 +9,11 @@ def startJarvis():
     t=threading.Thread(target=main())
     t.daemon=True
     t.start()
+    return
 
 def aboutMe():
-    t=threading.Thread(target=webbrowser.open("README.md"))
-    t.daemon=True
-    t.start()
+    readme=open('README.md', 'r')
+    return
 
 def stopJarvis():
     pass
@@ -33,5 +33,8 @@ helpmenu.add_command(label="About", command=aboutMe)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
 app.config(menu=menubar)
-
+button1=Button(app, text="Start Jarvis", width =20, command= startJarvis)
+button1.pack(side='top', padx=15, pady=15)
+button2=Button(app, text="Stop Jarvis", width=20, command=stopJarvis)
+button2.pack(side='bottom', padx=15, pady=15)
 app.mainloop()
