@@ -51,11 +51,9 @@ def weather():
     temp=soup.find_all("p", {"class": "status"})
 
     for item in temp:
-        print item.text
         engine.say(item.text)    
 
     for item in rain:
-        print item.text
         engine.say(item.text) 
 
 #Listen for phrases

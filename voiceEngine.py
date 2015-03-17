@@ -21,13 +21,12 @@ def main():
     r.pause_threshold=0.3
     r.quiet_duration=0.3
     with sr.Microphone() as source:
-        while 1:
-            try:
-                 t=threading.Thread(target=engine(source,r))
-                 t.daemon=True 
-                 #engine(source,r)
-                 t.start()
-            except LookupError:
-                print("No voice detected")
+        try:
+             t=threading.Thread(target=engine(source,r))
+             t.daemon=True 
+             #engine(source,r)
+             t.start()
+        except LookupError:
+            print("No voice detected")
 
 if __name__ == "__main__":main()
