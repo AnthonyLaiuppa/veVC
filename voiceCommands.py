@@ -69,7 +69,12 @@ def date():
 
 def time():
     now=datetime.now()
-    return('The time is', str((now.hour)-12), str(now.minute))
+    if now.hour>12:
+      hour=now.hour-12
+    else:
+      hour=now.hour
+    return('The time is', str(hour), str(now.minute))
+
 
 #Pass mechanize the weather website
 #Vocalize the results as parsed by beautiful soup

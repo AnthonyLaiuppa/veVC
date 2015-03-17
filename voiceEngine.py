@@ -5,20 +5,23 @@ import pyaudio
 from voiceCommands import *
 
 
-def main(source):
+def engine(source, r):
     audio=r.listen(source)
     test=None
     test=str(r.recognize(audio))
     switch(test)
 
-if __name__ == "__main__":
-    r=sr.Recognizer() 
+
+def main():
+    r=sr.Recognizer()
     r.energy_threshold=800
     r.pause_threshold=0.3
     r.quiet_duration=0.3
     with sr.Microphone() as source:
         while 1:
             try:
-                main(source)
+                 engine(source,r)
             except LookupError:
-                print("No sound detected")
+                print("No voice detected")
+
+if __name__ == "__main__":main()
