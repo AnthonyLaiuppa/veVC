@@ -5,9 +5,11 @@ from bs4 import BeautifulSoup
 import mechanize
 from mechanize._opener import urlopen
 import pyaudio
-import os
+import os, sys
+import subprocess
 import pytz, time
 from datetime import datetime
+import threading
 
 engine=pyttsx.init()
 month=time.strftime("%B")
@@ -39,7 +41,13 @@ def time():
       hour=now.hour
     return('The time is', str(hour), str(now.minute))
 
+def closeVlc():
+    pcmd='pkill vlc'
+    os.system(pcmd)
+    return('VLC media player closed')
 
+
+    
 #Pass mechanize the weather website
 #Vocalize the results as parsed by beautiful soup
 def weather():
@@ -80,11 +88,12 @@ def switch(test):
 
     elif all(x in test for x in ['date']):
         engine.say(date()) 
-
+    
     elif all(x in test for x in ['today', 'like']):
         engine.say(time())
         engine.say(date())
         weather()
         #engine.runAndWait()
-      
+    elif all(x in test for x in ['close', 'VLC']):
+        engine.say(closeVlc())  
     return(test)
